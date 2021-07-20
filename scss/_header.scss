@@ -1,0 +1,141 @@
+#header {
+  background-color: $gold;
+  position: relative;
+}
+
+#burger-menu {
+  display: none;
+
+  &:checked {
+    ~ .burger-menu-open {
+      span {
+        opacity: 0;
+      }
+
+      &::before {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+
+      &::after {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+    ~ .nav {
+      transform: translateX(0);
+      // transition: transform 0.5s linear;
+
+      .nav__list {
+        background-color: $blue;
+        display: block;
+      }
+    }
+  }
+}
+
+.burger-menu-open {
+  position: absolute;
+  display: block;
+  top: 10px;
+  right: 10px;
+  border: 3px solid #000;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+
+  &::before,
+  &::after,
+  span {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 90%;
+    height: 5px;
+    top: 50%;
+    left: 50%;
+    background-color: black;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    transition: all 0.5s linear;
+  }
+
+  &::before {
+    top: 10px;
+  }
+
+  &::after {
+    top: calc(100% - 10px);
+  }
+
+  @media (min-width: 576px) {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}
+
+.header__inner {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px;
+  align-items: center;
+
+  @media (min-width: 576px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.header__logo {
+  width: 150px;
+  height: auto;
+}
+
+.nav {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 320px;
+  transition: transform 0.5s linear;
+  transform: translateX(100%);
+
+  @media (min-width: 576px) {
+    position: static;
+    width: auto;
+    transform: translateX(0);
+  }
+
+  &__list {
+    padding: 10px 20px;
+    background-color: $blue;
+
+    @media (min-width: 576px) {
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+    }
+  }
+
+  &__item {
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    @media (min-width: 576px) {
+      margin-bottom: 0px;
+    }
+  }
+
+  &__link {
+    font-size: 18px;
+    text-decoration: none;
+    color: $black;
+    transition: color 0.5s ease;
+
+    &:hover {
+      cursor: pointer;
+      color: $blue;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,114 @@
+#main {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
+}
+
+#about-us {
+  padding: 0 20px;
+  background-color: $white;
+  order: 2;
+  text-align: center;
+
+  .about-us__title {
+    text-transform: uppercase;
+  }
+
+  .about-us__text {
+    padding: 20px 0;
+  }
+}
+
+.aside {
+  flex: 1;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    flex: 1 0 150px;
+  }
+  
+  @media (min-width: 992px) {
+    flex: 1 0 210px;
+  }
+
+  &__title {
+    color: red;
+  }
+}
+.aside--left {
+  background-color: $rose;
+  order: 1;
+}
+
+.aside--right {
+  background-color: $blue;
+  order: 3;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.about-us__cards {
+  margin-bottom: 40px;
+}
+
+.cards-item {
+  display: flex;
+  flex-grow: 1;
+  padding: 0 10px;
+  margin-bottom: 10px;
+
+  @media (min-width: 576px) {
+    flex-basis: calc(100% / 2);
+  }
+
+  @media (min-width: 992px) {
+    flex-basis: calc(100% / 3);
+  }
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 1px solid #000;
+  border-radius: 30px;
+
+  &__img-container {
+    width: 150px;
+    border: 15px solid $rose;
+    border-radius: 50%;
+    margin: 10px auto;
+  }
+
+  &__title {
+    padding: 0;
+  }
+
+  &__description {
+    flex: 1;
+    margin-bottom: 20px;
+    color: rgb(126, 126, 126);
+  }
+
+  &__link {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: $rose;
+    border-radius: 20px;
+    transition: background-color 0.4s ease;
+    align-self: center;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $blue;
+    }
+  }
+}
